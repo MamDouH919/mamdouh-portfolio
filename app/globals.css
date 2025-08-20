@@ -1,0 +1,347 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to match the emerald-based design brief */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.35 0.01 258.34);
+  --card: oklch(0.97 0.01 258.34);
+  --card-foreground: oklch(0.35 0.01 258.34);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.35 0.01 258.34);
+  --primary: oklch(0.45 0.15 162.4);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.97 0.01 258.34);
+  --secondary-foreground: oklch(0.35 0.01 258.34);
+  --muted: oklch(0.98 0.01 180);
+  --muted-foreground: oklch(0.35 0.01 258.34);
+  --accent: oklch(0.55 0.15 162.4);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.55 0.22 27.33);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.85 0.01 258.34);
+  --input: oklch(0.97 0.01 258.34);
+  --ring: oklch(0.45 0.15 162.4 / 0.3);
+  --chart-1: oklch(0.45 0.15 162.4);
+  --chart-2: oklch(0.55 0.15 162.4);
+  --chart-3: oklch(0.97 0.01 258.34);
+  --chart-4: oklch(0.55 0.22 27.33);
+  --chart-5: oklch(0.98 0.01 180);
+  --radius: 0.5rem;
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.35 0.01 258.34);
+  --sidebar-primary: oklch(0.45 0.15 162.4);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.55 0.15 162.4);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.85 0.01 258.34);
+  --sidebar-ring: oklch(0.45 0.15 162.4 / 0.3);
+}
+
+.dark {
+  /* Updated dark mode tokens to complement the emerald theme */
+  --background: oklch(0.08 0.01 258.34);
+  --foreground: oklch(0.98 0.01 258.34);
+  --card: oklch(0.12 0.01 258.34);
+  --card-foreground: oklch(0.98 0.01 258.34);
+  --popover: oklch(0.08 0.01 258.34);
+  --popover-foreground: oklch(0.98 0.01 258.34);
+  --primary: oklch(0.55 0.15 162.4);
+  --primary-foreground: oklch(0.08 0.01 258.34);
+  --secondary: oklch(0.15 0.01 258.34);
+  --secondary-foreground: oklch(0.98 0.01 258.34);
+  --muted: oklch(0.15 0.01 258.34);
+  --muted-foreground: oklch(0.65 0.01 258.34);
+  --accent: oklch(0.55 0.15 162.4);
+  --accent-foreground: oklch(0.08 0.01 258.34);
+  --destructive: oklch(0.65 0.22 27.33);
+  --destructive-foreground: oklch(0.98 0.01 258.34);
+  --border: oklch(0.15 0.01 258.34);
+  --input: oklch(0.15 0.01 258.34);
+  --ring: oklch(0.55 0.15 162.4 / 0.3);
+  --chart-1: oklch(0.55 0.15 162.4);
+  --chart-2: oklch(0.65 0.15 162.4);
+  --chart-3: oklch(0.75 0.15 162.4);
+  --chart-4: oklch(0.65 0.22 27.33);
+  --chart-5: oklch(0.55 0.22 27.33);
+  --sidebar: oklch(0.08 0.01 258.34);
+  --sidebar-foreground: oklch(0.98 0.01 258.34);
+  --sidebar-primary: oklch(0.55 0.15 162.4);
+  --sidebar-primary-foreground: oklch(0.08 0.01 258.34);
+  --sidebar-accent: oklch(0.15 0.01 258.34);
+  --sidebar-accent-foreground: oklch(0.98 0.01 258.34);
+  --sidebar-border: oklch(0.15 0.01 258.34);
+  --sidebar-ring: oklch(0.55 0.15 162.4 / 0.3);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* Added font family variables for Work Sans and Open Sans */
+  --font-heading: var(--font-work-sans);
+  --font-body: var(--font-open-sans);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+  /* Added heading font class */
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Added smooth scrolling for navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced animations with more sophisticated easing and stagger effects */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(5, 150, 105, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(5, 150, 105, 0.6);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Added gradient text utility with better browser support */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Added enhanced hover effects and micro-interactions */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(5, 150, 105, 0.3);
+}
+
+/* Added responsive typography scaling */
+@media (max-width: 640px) {
+  .text-responsive-xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .text-responsive-2xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+  .text-responsive-3xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  .text-responsive-4xl {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 641px) {
+  .text-responsive-xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+  .text-responsive-2xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  .text-responsive-3xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+  .text-responsive-4xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+
+/* Added loading spinner animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Added focus styles for better accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+}
+
+/* Added smooth transitions for all interactive elements */
+button,
+a,
+input,
+textarea {
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Added parallax effect utility */
+.parallax {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Added glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

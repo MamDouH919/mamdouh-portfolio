@@ -1,0 +1,207 @@
+{
+    "1": {
+        "id": 1,
+        "title": "Fan Al Sabagh Kuwait",
+        "description": "A professional service website built to showcase painting and decoration services in Kuwait, featuring a clean design, responsive layout, and easy-to-navigate structure.",
+        "longDescription": "The Fanal Al Sabagh Kuwait website was developed to provide a modern digital presence for a leading painting and decoration service company. The platform highlights the company’s expertise in residential and commercial painting, wallpaper installation, and home finishing services.\n\nKey features include a mobile-first responsive design, service showcase pages, customer contact forms for inquiries, and SEO optimization to ensure strong visibility in local search results. The site emphasizes fast loading speed, accessibility, and a user-friendly experience for both Arabic and English visitors.\n\nThe website was crafted with scalability in mind, allowing easy updates to services, images, and content as the business grows.",
+        "images": [
+            "/projects/logo-dark.webp"
+        ],
+        "technologies": [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "SEO Optimization"
+        ],
+        "liveUrl": "https://fanalsabaghkuwait.com",
+        "githubUrl": "",
+        "duration": "7 Days",
+        "client": "Fan Al Sabagh Kuwait",
+        "category": "Front-End Developer",
+        "subSites": []
+    },
+    "2": {
+        "id": 2,
+        "title": "Arab Clinic",
+        "description": "A full-stack medical center website built to manage and display clinic services, doctors’ profiles, and patient information with a secure backend and responsive frontend.",
+        "longDescription": "The Arab Clinic platform was developed as a complete solution for a medical center, combining both frontend and backend systems. The site allows administrators to manage clinic data such as services, doctors, and schedules, while providing patients with clear and accessible information.\n\nKey features include a responsive multi-page design, multilingual support, secure data handling, and dynamic content management for services and doctor profiles. The backend ensures structured data storage and easy updates, while the frontend delivers a user-friendly experience optimized for both desktop and mobile.\n\nThe project emphasizes scalability, security, and performance, ensuring the clinic can grow its online presence and efficiently serve its patients.",
+        "images": [
+            "/projects/arab-clinic.webp",
+            "/projects/arab-clinic-1.png",
+            "/projects/arab-clinic-2.png",
+            "/projects/arab-clinic-3.png"
+        ],
+        "technologies": [
+            "Next.js",
+            "TypeScript",
+            "prisma",
+            "Material UI",
+            "Zod Validation"
+        ],
+        "liveUrl": "https://arabclinic.net",
+        "githubUrl": "",
+        "duration": "1 Months",
+        "client": "Arab Clinic",
+        "category": "Full-Stack Development",
+        "subSites": []
+    },
+    "3": {
+        "id": 3,
+        "title": "Sabagh El-Kuwait",
+        "description": "A professional service website built to showcase painting and decoration services in Kuwait, featuring a clean design, responsive layout, and easy-to-navigate structure.",
+        "longDescription": "The Fanal Al Sabagh Kuwait website was developed to provide a modern digital presence for a leading painting and decoration service company. The platform highlights the company’s expertise in residential and commercial painting, wallpaper installation, and home finishing services.\n\nKey features include a mobile-first responsive design, service showcase pages, customer contact forms for inquiries, and SEO optimization to ensure strong visibility in local search results. The site emphasizes fast loading speed, accessibility, and a user-friendly experience for both Arabic and English visitors.\n\nThe website was crafted with scalability in mind, allowing easy updates to services, images, and content as the business grows.",
+        "images": [
+            "/projects/sapagh.png"
+        ],
+        "technologies": [
+            "Next.js",
+            "TypeScript",
+            "Material UI",
+            "SEO Optimization"
+        ],
+        "liveUrl": "https://thebest-paint-kuwait.com/",
+        "githubUrl": "",
+        "duration": "7 Days",
+        "client": "Sabagh El-Kuwait",
+        "category": "Front-End Developer",
+        "subSites": []
+    },
+    "4": {
+        "id": 4,
+        "title": "Doctor Platform Demo & Extensions",
+        "description": "A scalable multi-doctor website platform with a demo site and personalized extensions for individual doctors, featuring appointment booking, profiles, and service management.",
+        "longDescription": "This project is a comprehensive doctor platform designed to provide medical professionals with a personalized digital presence. The main demo site showcases the core features, while each doctor’s website (e.g., Dr. Hassan Abdullah, Dr. Mostafa Mohamed, Dr. Emad Hamouda) extends the demo with unique branding, content, and patient-focused details.\n\nKey features include customizable doctor profiles, appointment scheduling integration, service showcases, and responsive multi-device support. The system was built to be scalable, allowing rapid deployment of new doctor websites from a single demo template while maintaining flexibility for customization.\n\nThe backend manages dynamic content such as doctor details, schedules, and services, while the frontend ensures a professional, user-friendly experience for patients. This solution provides a modern, cost-effective approach for clinics and individual doctors to establish their online presence.",
+        "images": [
+            "/projects/doctor-qr/img.png",
+            "/projects/doctor-qr/img-1.png",
+            "/projects/doctor-qr/img-2.png",
+            "/projects/doctor-qr/img-3.png",
+            "/projects/doctor-qr/img-4.png",
+            "/projects/doctor-qr/img-5.png",
+            "/projects/doctor-qr/img-6.png"
+        ],
+        "technologies": [
+            "Next.js",
+            "TypeScript",
+            "MongoDB",
+            "Material UI"
+        ],
+        "liveUrl": "https://doctor.mountain-egy.site/",
+        "subSites": [
+            "https://dr-hassan-abdullah.mountain-egy.site/",
+            "https://dr-mostafa-mohamed.mountain-egy.site/",
+            "https://dr-emad-hamouda.mountain-egy.site/"
+        ],
+        "githubUrl": "",
+        "duration": "3 Days",
+        "client": "Mountain",
+        "category": "Full-Stack Development"
+    },
+    "5": {
+        "id": 5,
+        "title": "QR Code Generator Platform",
+        "description": "A dynamic QR code generator for personal profiles and restaurant menus, supporting customizable templates and quick sharing.",
+        "longDescription": "This project is a versatile QR code generator platform built to help individuals and businesses share their information seamlessly. Users can generate QR codes that link to personal details, digital business cards, or restaurant menus with images.\n\nKey features include customizable templates, QR code image generation, responsive design for mobile and desktop, and fast performance. Restaurants can upload menu images for instant access by scanning the QR code, while professionals can create personal data QR codes to share contact details easily.\n\nThe platform is designed with scalability and simplicity in mind, ensuring a user-friendly experience for both business owners and individuals.",
+        "images": [
+            "/projects/qr-code/img.jpeg",
+            "/projects/qr-code/img-1.png",
+            "/projects/qr-code/img-2.png",
+            "/projects/qr-code/img-3.png"
+        ],
+        "technologies": [
+            "React.js",
+            "Material UI"
+        ],
+        "liveUrl": "https://qr.mountain-egy.site/",
+        "githubUrl": "",
+        "duration": "1 Week",
+        "client": "Mountain",
+        "category": "Front-End Developer",
+        "subSites": []
+    },
+    "6": {
+        "id": 6,
+        "title": "Accurate Company Website",
+        "description": "A professional business services website designed to showcase company data, expertise, and service offerings with a clean, responsive layout.",
+        "longDescription": "The Accurate S&S website was developed as a corporate presence to clearly communicate the company’s services, mission, and values. The platform focuses on delivering a user-friendly experience, featuring sections for service highlights, company profile, and easy contact options.\n\nKey features include a responsive multi-page layout, service description modules, timeline or team showcase (if applicable), and a visible contact section for client inquiries. Built with maintainability in mind, the site allows for easy updates to service details, team bios, and contact information.\n\nThe frontend ensures accessibility and performance, optimized for both desktop and mobile users. The website serves as an effective digital brochure for attracting clients and reinforcing the company’s credibility.",
+        "images": [
+            "/projects/accWebsite.jpg"
+        ],
+        "technologies": [
+            "React.js",
+            "Bootstrap"
+        ],
+        "liveUrl": "https://accuratess.com",
+        "githubUrl": "",
+        "duration": "2 Weeks",
+        "client": "Accurate",
+        "category": "Front-End Development",
+        "subSites": []
+    },
+    "7": {
+        "id": 7,
+        "title": "Kooora Planet Website",
+        "description": "A modern sports news and updates platform designed and developed from a Figma design, featuring a clean UI and responsive layout.",
+        "longDescription": "The Kooora Planet website was created based on a provided Figma design, transforming the UI/UX concept into a functional and responsive web template. The site delivers a seamless browsing experience with sections for sports news, match updates, and featured highlights. \n\nKey features include a responsive design optimized for mobile and desktop, intuitive navigation, and dynamic sections that can be easily adapted to future requirements. Built with scalability and maintainability in mind, the template provides a strong foundation for expanding into a fully featured sports content platform. \n\nThe frontend emphasizes performance and user-friendliness, ensuring smooth access to sports content across devices.",
+        "images": [
+            "/projects/koora-planet.png"
+        ],
+        "technologies": [
+            "html",
+            "css",
+            "javascript",
+            "Bootstrap"
+        ],
+        "liveUrl": "https://kooora-planet.netlify.app/",
+        "githubUrl": "",
+        "duration": "1 Week",
+        "client": "Kooora Planet",
+        "category": "Front-End Development",
+        "subSites": []
+    },
+    "8": {
+        "id": 8,
+        "title": "Aloosh Beauty Shopify Store",
+        "description": "A modern Shopify-based e-commerce experience for a natural beauty brand, designed to highlight products, ingredients, and wellness content seamlessly.",
+        "longDescription": "The Aloosh Beauty Shopify store is crafted to bring a luxurious yet natural skincare experience online. With clean aesthetics, high-quality imagery, and intuitive navigation, the site invites visitors into a world of non-toxic, natural beauty products.\n\nKey features include organized product collections (e.g., deodorants, lotions, moisturizers), quick add-to-cart and preview functionality, a blog section for content marketing (e.g., hair care tips, skincare routines), and integrated account management (wishlist, order tracking). The theme emphasizes natural textures, botanical imagery, and a calming color palette to reflect brand values.\n\nOn the backend, Shopify enables effortless product management, inventory tracking, payments, and promotions. SEO-ready structure, fast-loading performance, and responsive design ensure optimal user experience across devices. This store not only showcases products but also amplifies the brand story through content and visuals.",
+        "images": [
+            "/projects/aloosh-beauty.png"
+        ],
+        "technologies": [
+            "Shopify",
+            "Liquid Templates",
+            "Sectioned Theme Editing",
+            "SEO Optimization",
+            "Responsive Design"
+        ],
+        "liveUrl": "https://www.alooshbeauty.com/",
+        "githubUrl": "",
+        "duration": "1 Week",
+        "client": "Aloosh Beauty",
+        "category": "E-Commerce / Shopify",
+        "subSites": []
+    },
+    "9": {
+        "id": 9,
+        "title": "Cook-For-You",
+        "description": "A restaurant presentation website paired with a powerful admin dashboard to manage menus, orders, and restaurant details.",
+        "longDescription": "Cook-For-You is a dual-platform solution for restaurants: a customer-facing front end displaying menu items, services, and ambiance details, and a backend dashboard that enables restaurant admins to manage menus, update content, and process orders or reservations seamlessly.\n\nThe website features responsive design, visually rich menu displays (with images and pricing), contact and location sections, plus potential integrations like online ordering or reservation forms. The admin dashboard ensures secure login, CRUD operations for menu items and categories, order tracking, and easy content updates.\n\nBuilt with scalability and usability in mind, the solution uses a modern tech stack to deliver fast performance and a robust user experience on both ends.",
+        "images": [
+            "/placeholder.svg?height=600&width=800",
+            "/placeholder.svg?height=600&width=800"
+        ],
+        "technologies": [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Node.js",
+            "Express",
+            "MongoDB"
+        ],
+        "liveUrl": "https://cook-foryou.com",
+        "githubUrl": "",
+        "duration": "3 Months",
+        "client": "For You",
+        "category": "Front-End Development"
+    }
+}
