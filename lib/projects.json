@@ -202,6 +202,7 @@
         "githubUrl": "",
         "duration": "3 Months",
         "client": "For You",
-        "category": "Front-End Development"
+        "category": "Front-End Development",
+        "subSites": []
     }
 }
