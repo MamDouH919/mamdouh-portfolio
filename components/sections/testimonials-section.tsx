@@ -4,49 +4,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Star, Quote } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
-
-const testimonials = [
-  {
-    id: 1,
-    name: "Sarah Johnson",
-    role: "Product Manager",
-    company: "TechCorp Inc.",
-    avatar: "/placeholder.svg?height=60&width=60",
-    rating: 5,
-    content:
-      "Mamdouh delivered an exceptional e-commerce platform that exceeded our expectations. His attention to detail and technical expertise made the entire process smooth and efficient.",
-  },
-  {
-    id: 2,
-    name: "Michael Chen",
-    role: "Startup Founder",
-    company: "InnovateLab",
-    avatar: "/placeholder.svg?height=60&width=60",
-    rating: 5,
-    content:
-      "Working with Mamdouh was a game-changer for our startup. He transformed our ideas into a beautiful, functional web application that our users love. Highly recommended!",
-  },
-  {
-    id: 3,
-    name: "Emily Rodriguez",
-    role: "Marketing Director",
-    company: "Creative Agency",
-    avatar: "/placeholder.svg?height=60&width=60",
-    rating: 5,
-    content:
-      "The portfolio website Mamdouh created for us perfectly captures our brand identity. The design is modern, responsive, and has significantly improved our online presence.",
-  },
-  {
-    id: 4,
-    name: "David Thompson",
-    role: "CTO",
-    company: "DataFlow Solutions",
-    avatar: "/placeholder.svg?height=60&width=60",
-    rating: 5,
-    content:
-      "Mamdouh's technical skills are outstanding. He built a complex dashboard application with real-time features that performs flawlessly. Great communication throughout the project.",
-  },
-]
+import { supabase } from "@/supabaseClient"
+import { AddTestimonialDialog } from "../testimonials/add-testimonial-dialog"
 
 const achievements = [
   {
@@ -76,24 +35,33 @@ const achievements = [
 ]
 
 export function TestimonialsSection() {
-  const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
+  const [testimonials, setTestimonials] = useState<any[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [fetchError, setFetchError] = useState<string | null>(null)
+
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.2 },
-    )
+    let isMounted = true
+    const load = async () => {
+      const { data, error } = await supabase
+        .from("testimonials")
+        .select("*")
+        .eq("status", "approved")
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+
+      if (!isMounted) return
+      if (error) {
+        setFetchError(error.message)
+      } else {
+        setTestimonials(data ?? [])
+      }
+      setIsLoading(false)
     }
-
-    return () => observer.disconnect()
+    load()
+    return () => {
+      isMounted = false
+    }
   }, [])
 
   return (
@@ -102,27 +70,35 @@ export function TestimonialsSection() {
         {/* Testimonials */}
         <div className="mb-20">
           <div
-            className={`text-center mb-16 transition-all duration-800 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+            className={`text-center mb-16 transition-all duration-800 gap-3 flex flex-col items-center`}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold font-heading mb-4 gradient-text">What Clients Say</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold font-heading gradient-text">What Clients Say</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Don't just take my word for it. Here's what some of my clients have to say about working with me.
             </p>
+            <AddTestimonialDialog />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
+            {isLoading && (
+              <div className="col-span-full text-center text-muted-foreground">Loading...</div>
+            )}
+            {fetchError && (
+              <div className="col-span-full text-center text-red-600">{fetchError}</div>
+            )}
+            {!isLoading && !fetchError && testimonials.length === 0 && (
+              <div className="col-span-full text-center text-muted-foreground">No testimonials yet.</div>
+            )}
+            {!isLoading && !fetchError && testimonials.map((testimonial, index) => (
               <Card
                 key={testimonial.id}
-                className={`transition-all duration-800 hover:shadow-lg ${
-                  isVisible ? "animate-fade-in-up" : "opacity-0"
-                }`}
+                className={`transition-all duration-800 hover:shadow-lg`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4 mb-4">
                     <Quote className="h-8 w-8 text-primary/30 flex-shrink-0 mt-1" />
-                    <p className="text-muted-foreground leading-relaxed">{testimonial.content}</p>
+                    <p className="text-muted-foreground leading-relaxed">{testimonial.comment}</p>
                   </div>
 
                   <div className="flex items-center justify-between">
@@ -130,7 +106,7 @@ export function TestimonialsSection() {
                       <Avatar>
                         <AvatarImage src={testimonial.avatar || "/placeholder.svg"} alt={testimonial.name} />
                         <AvatarFallback>
-                          {testimonial.name
+                          {String(testimonial.name || "")
                             .split(" ")
                             .map((n) => n[0])
                             .join("")}
@@ -139,13 +115,13 @@ export function TestimonialsSection() {
                       <div>
                         <div className="font-semibold">{testimonial.name}</div>
                         <div className="text-sm text-muted-foreground">
-                          {testimonial.role} at {testimonial.company}
+                          {testimonial.role} {testimonial.company ? `at ${testimonial.company}` : ""}
                         </div>
                       </div>
                     </div>
 
                     <div className="flex gap-1">
-                      {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      {Array.from({ length: Number(testimonial.rate) || 5 }).map((_, i) => (
                         <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                       ))}
                     </div>
@@ -159,9 +135,7 @@ export function TestimonialsSection() {
         {/* Achievements */}
         <div>
           <div
-            className={`text-center mb-16 transition-all duration-800 delay-500 ${
-              isVisible ? "animate-fade-in-up" : "opacity-0"
-            }`}
+            className={`text-center mb-16 transition-all duration-800 delay-500 `}
           >
             <h2 className="text-3xl sm:text-4xl font-bold font-heading mb-4 gradient-text">
               Achievements & Certifications
@@ -175,9 +149,7 @@ export function TestimonialsSection() {
             {achievements.map((achievement, index) => (
               <Card
                 key={achievement.title}
-                className={`text-center hover:shadow-lg transition-all duration-500 hover:-translate-y-1 ${
-                  isVisible ? "animate-fade-in-up" : "opacity-0"
-                }`}
+                className={`text-center hover:shadow-lg transition-all duration-500 hover:-translate-y-1`}
                 style={{ animationDelay: `${600 + index * 100}ms` }}
               >
                 <CardContent className="p-6">

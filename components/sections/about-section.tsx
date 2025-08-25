@@ -3,31 +3,34 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Download, Code, Coffee, Lightbulb } from "lucide-react"
+import DownloadCVButton from "../cv-button"
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-background">
+    <section id="about" className="py-16 sm:py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Photo */}
-          <div className={`transition-all duration-800`}>
-            <div className="relative">
+          <div className="order-1 lg:order-none">
+            <div className="relative flex justify-center">
               <img
                 src="/mamdouh-mohammed.png"
                 alt="Mamdouh Mohammed"
-                className="rounded-2xl shadow-2xl w-full max-w-md mx-auto lg:mx-0"
+                className="rounded-2xl shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover"
               />
-              <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-4 rounded-xl shadow-lg">
+              <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-4 rounded-xl shadow-lg hidden sm:block">
                 <Code size={32} />
               </div>
             </div>
           </div>
 
           {/* Content */}
-          <div className={`transition-all duration-800 delay-200`}>
-            <h2 className="text-3xl sm:text-4xl font-bold font-heading mb-6 gradient-text">About Me</h2>
+          <div className="order-2 lg:order-none">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading mb-6 gradient-text text-center lg:text-left">
+              About Me
+            </h2>
 
-            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <div className="space-y-6 text-base sm:text-lg text-muted-foreground leading-relaxed text-center lg:text-left">
               <p>
                 Hello! I'm Mamdouh Mohammed, a passionate Front-End Developer with over 3 years of experience creating
                 exceptional digital experiences. I specialize in building responsive, user-friendly web applications
@@ -47,17 +50,17 @@ export function AboutSection() {
             </div>
 
             {/* Stats Cards */}
-            <div className="grid grid-cols-3 gap-4 my-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
               <Card className="p-4 text-center">
-                <div className="text-2xl font-bold text-primary mb-1">3+</div>
+                <div className="text-xl sm:text-2xl font-bold text-primary mb-1">3+</div>
                 <div className="text-sm text-muted-foreground">Years Experience</div>
               </Card>
               <Card className="p-4 text-center">
-                <div className="text-2xl font-bold text-primary mb-1">50+</div>
+                <div className="text-xl sm:text-2xl font-bold text-primary mb-1">50+</div>
                 <div className="text-sm text-muted-foreground">Projects Completed</div>
               </Card>
               <Card className="p-4 text-center">
-                <div className="text-2xl font-bold text-primary mb-1">15+</div>
+                <div className="text-xl sm:text-2xl font-bold text-primary mb-1">15+</div>
                 <div className="text-sm text-muted-foreground">Happy Clients</div>
               </Card>
             </div>
@@ -65,29 +68,28 @@ export function AboutSection() {
             {/* Highlights */}
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3">
-                <div className="bg-primary/10 p-2 rounded-lg">
+                <div className="bg-primary/10 p-2 rounded-lg flex-shrink-0">
                   <Lightbulb className="h-5 w-5 text-primary" />
                 </div>
-                <span>Creative problem solver with attention to detail</span>
+                <span className="text-sm sm:text-base">Creative problem solver with attention to detail</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="bg-primary/10 p-2 rounded-lg">
+                <div className="bg-primary/10 p-2 rounded-lg flex-shrink-0">
                   <Code className="h-5 w-5 text-primary" />
                 </div>
-                <span>Passionate about clean, maintainable code</span>
+                <span className="text-sm sm:text-base">Passionate about clean, maintainable code</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="bg-primary/10 p-2 rounded-lg">
+                <div className="bg-primary/10 p-2 rounded-lg flex-shrink-0">
                   <Coffee className="h-5 w-5 text-primary" />
                 </div>
-                <span>Always learning and staying up-to-date with trends</span>
+                <span className="text-sm sm:text-base">Always learning and staying up-to-date with trends</span>
               </div>
             </div>
 
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Download className="mr-2 h-5 w-5" />
-              Download My CV
-            </Button>
+            <div className="flex justify-center lg:justify-start">
+              <DownloadCVButton />
+            </div>
           </div>
         </div>
       </div>

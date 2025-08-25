@@ -183,12 +183,17 @@
     },
     "9": {
         "id": 9,
-        "title": "Cook-For-You",
+        "title": "Cook For You",
         "description": "A restaurant presentation website paired with a powerful admin dashboard to manage menus, orders, and restaurant details.",
         "longDescription": "Cook-For-You is a dual-platform solution for restaurants: a customer-facing front end displaying menu items, services, and ambiance details, and a backend dashboard that enables restaurant admins to manage menus, update content, and process orders or reservations seamlessly.\n\nThe website features responsive design, visually rich menu displays (with images and pricing), contact and location sections, plus potential integrations like online ordering or reservation forms. The admin dashboard ensures secure login, CRUD operations for menu items and categories, order tracking, and easy content updates.\n\nBuilt with scalability and usability in mind, the solution uses a modern tech stack to deliver fast performance and a robust user experience on both ends.",
         "images": [
-            "/placeholder.svg?height=600&width=800",
-            "/placeholder.svg?height=600&width=800"
+            "/projects/cook-foru/img.png",
+            "/projects/cook-foru/img-1.png",
+            "/projects/cook-foru/img-2.png",
+            "/projects/cook-foru/img-3.png",
+            "/projects/cook-foru/img-4.png",
+            "/projects/cook-foru/img-5.png",
+            "/projects/cook-foru/img-6.png"
         ],
         "technologies": [
             "Next.js",

@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Work_Sans, Open_Sans } from "next/font/google"
 import { Toaster } from "@/components/ui/toaster"
+import { AuthContextProvider } from "@/context/AuthContext"
 import "./globals.css"
 
 /* Updated fonts to match design brief */
@@ -24,8 +25,6 @@ export const metadata: Metadata = {
   generator: "v0.app",
   keywords: ["Front-End Developer", "React", "Next.js", "TypeScript", "Web Development", "Portfolio"],
   authors: [{ name: "Mamdouh Mohammed" }],
-  viewport: "width=device-width, initial-scale=1",
-  themeColor: "#059669",
 }
 
 export default function RootLayout({
@@ -35,8 +34,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${workSans.variable} ${openSans.variable}`}>
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className="font-body antialiased">
-        {children}
+        <AuthContextProvider>
+          {children}
+        </AuthContextProvider>
         <Toaster />
       </body>
     </html>

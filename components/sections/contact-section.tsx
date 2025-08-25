@@ -8,27 +8,34 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, MessageCircle } from "lucide-react"
+import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
+import { send } from 'emailjs-com';
 
 const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "mamdouh@example.com",
-    href: "mailto:mamdouh@example.com",
+    value: "mamdouh.mohammed919@gmail.com",
+    href: "mailto:mamdouh.mohammed919@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "+20 115 7143 609",
+    href: "tel:+201157143609",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "New York, NY",
+    value: "cairo, egypt",
     href: "https://maps.google.com",
+  },
+  {
+    icon: MessageCircle,
+    label: "Whatsapp",
+    href: "https://wa.me/+201157143609",
+    value: "+20 115 7143 609",
   },
 ]
 
@@ -36,20 +43,14 @@ const socialLinks = [
   {
     icon: Github,
     label: "GitHub",
-    href: "https://github.com",
+    href: "https://github.com/MamDouH919",
     color: "hover:text-gray-900",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/mamdouh-mohammed/",
     color: "hover:text-blue-600",
-  },
-  {
-    icon: Twitter,
-    label: "Twitter",
-    href: "https://twitter.com",
-    color: "hover:text-blue-400",
   },
 ]
 
@@ -59,6 +60,7 @@ export function ContactSection() {
     name: "",
     email: "",
     message: "",
+    phone: "",
   })
   const { toast } = useToast()
 
@@ -71,16 +73,28 @@ export function ContactSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-
-    toast({
-      title: "Message sent successfully!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    })
-
-    setFormData({ name: "", email: "", message: "" })
-    setIsSubmitting(false)
+    send(
+      'service_a2qhbkf',
+      'template_6yil7fe',
+      formData,
+      '3MRu-SjkSc1Mx-NWK'
+    )
+      .then((response) => {
+        // setSendBefore("ok")
+        setIsSubmitting(false)
+        setFormData({ name: "", email: "", message: "", phone: "" })
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        })
+      })
+      .catch((err) => {
+        setIsSubmitting(false)
+        toast({
+          title: "Failed to send message",
+          description: "Please try again later.",
+        })
+      });
   }
 
   return (
@@ -111,7 +125,7 @@ export function ContactSection() {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Name *</Label>
                     <Input
@@ -133,6 +147,19 @@ export function ContactSection() {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="your.email@example.com"
+                      required
+                      disabled={isSubmitting}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Phone *</Label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="Enter your phone number"
                       required
                       disabled={isSubmitting}
                     />
