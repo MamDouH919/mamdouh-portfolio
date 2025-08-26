@@ -1,0 +1,13 @@
+# Disable MultiViews to prevent Apache from matching multiple content types
+Options -MultiViews
+
+# Enable the Rewrite Engine
+RewriteEngine On
+
+# Redirect www.mamdouh.mountain-egy.com to mamdouh.mountain-egy.site
+RewriteCond %{HTTP_HOST} ^www\.mamdouh\.mountain-egy\.com$ [NC]
+RewriteRule ^(.*)$ https://mamdouh.mountain-egy.site/$1 [R=301,L]
+
+# Ensure non-www mamdouh.mountain-egy.com also redirects to mamdouh.mountain-egy.site
+RewriteCond %{HTTP_HOST} ^mamdouh\.mountain-egy\.com$ [NC]
+RewriteRule ^(.*)$ https://mamdouh.mountain-egy.site/$1 [R=301,L]
