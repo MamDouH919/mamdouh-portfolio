@@ -8,6 +8,7 @@ import LightRays from "../light-rays"
 import LetterGlitch from "../letter-glitch"
 import { supabase } from "@/supabaseClient"
 import DownloadCVButton from "../cv-button"
+import Link from "next/link"
 
 // Utility: generate random id
 function generateId() {
@@ -198,22 +199,26 @@ export function HeroSection() {
             <DownloadCVButton />
 
             <div className="flex gap-4">
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white/30 text-white hover:bg-white/10 bg-transparent"
-              >
-                <Github className="mr-2 h-5 w-5" />
-                GitHub
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white/30 text-white hover:bg-white/10 bg-transparent"
-              >
-                <Linkedin className="mr-2 h-5 w-5" />
-                LinkedIn
-              </Button>
+              <Link href="https://github.com/MamDouH919" target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white/30 text-white hover:bg-white/10 bg-transparent"
+                >
+                  <Github className="mr-2 h-5 w-5" />
+                  GitHub
+                </Button>
+              </Link>
+              <Link href="https://www.linkedin.com/in/mamdouh-mohammed/" target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white/30 text-white hover:bg-white/10 bg-transparent"
+                >
+                  <Linkedin className="mr-2 h-5 w-5" />
+                  LinkedIn
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
