@@ -12,7 +12,7 @@ const experiences = [
         position: "Front-End Developer",
         period: "Apr 2025 – Present",
         description:
-            "Built interactive user interfaces for startup products. Worked closely with designers to implement pixel-perfect designs and contributed to the company's design system.",
+            "Developed a comprehensive nutrition dashboard to assist doctors in managing patient health. Implemented features for creating servings, building meals from multiple servings, and structuring meal plans composed of several meals, which can then be assigned to specific users. Integrated user profile views with charts for body composition and blood test results. Built a physical assessment module enabling doctors to perform patient evaluations. The dashboard streamlined the process of creating tailored meal plans and conducting assessments, enhancing the overall patient management workflow.",
         technologies: ["Next.js", "Rest API", "Tailwind CSS", "TypeScript", "Redux", "ShadCn", "Query Client"],
     },
     {

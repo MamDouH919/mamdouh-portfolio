@@ -196,12 +196,11 @@
             "/projects/cook-foru/img-6.png"
         ],
         "technologies": [
-            "Next.js",
-            "TypeScript",
-            "Tailwind CSS",
-            "Node.js",
-            "Express",
-            "MongoDB"
+            "React.js",
+            "vite",
+            "Material UI",
+            "graphql",
+            "Apollo Client"
         ],
         "liveUrl": "https://cook-foryou.com",
         "githubUrl": "",
