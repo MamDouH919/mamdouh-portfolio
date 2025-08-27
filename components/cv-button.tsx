@@ -6,8 +6,8 @@ import { Download } from "lucide-react"
 export default function DownloadCVButton() {
     const handleDownload = () => {
         const link = document.createElement("a")
-        link.href = "/Mamdouh.Aladl.pdf" // file in /public
-        link.download = "Mamdouh.Aladl-CV.pdf" // suggested filename
+        link.href = "/Mamdouh-Aladl-cv.pdf"
+        link.download = "Mamdouh Aladl CV" // suggested filename
         document.body.appendChild(link)
         link.click()
         document.body.removeChild(link)
