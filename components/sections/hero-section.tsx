@@ -4,111 +4,18 @@ import { Button } from "@/components/ui/button"
 import { ChevronDown, Download, Github, Linkedin } from "lucide-react"
 import { useEffect, useState } from "react"
 import SplitText from "../split-text"
-import LightRays from "../light-rays"
 import LetterGlitch from "../letter-glitch"
-import { supabase } from "@/supabaseClient"
 import DownloadCVButton from "../cv-button"
 import Link from "next/link"
+import Visitors from "../visitors"
 
 // Utility: generate random id
-function generateId() {
-  return Date.now() + Math.floor(Math.random() * 1000000);
-}
-
-export async function trackVisitor({
-  ip,
-  userAgent,
-  language,
-  platform,
-  screen,
-}: {
-  ip: string;
-  userAgent: string;
-  language: string;
-  platform: string;
-  screen: string;
-}) {
-  // 1. Get cookie_id from localStorage
-  let cookieId = localStorage.getItem("cookie_id");
-
-  // 2. If not exists, generate and save
-  if (!cookieId) {
-    cookieId = generateId().toString();
-    localStorage.setItem("cookie_id", cookieId);
-  }
-
-  // 3. Insert into Supabase
-  const { data, error } = await supabase
-    .from("visitors")
-    .insert([{
-      cookie_id: cookieId,
-      ip,
-      userAgent,
-      language,
-      platform,
-      screen,
-    }]) // add other fields if needed
-    .select();
-
-  return { data, error };
-}
-
-async function getVisitorInfo() {
-  const ipRes = await fetch("https://api.ipify.org?format=json");
-  const ipData = await ipRes.json();
-
-  const info = {
-    ip: ipData.ip,
-    userAgent: navigator.userAgent,
-    language: navigator.language,
-    platform: navigator.platform,
-    screen: `${window.screen.width}x${window.screen.height}`,
-  };
-
-
-  trackVisitor({
-    ip: info.ip,
-    userAgent: info.userAgent,
-    language: info.language,
-    platform: info.platform,
-    screen: info.screen,
-  });
-}
-
-
-
-
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
 
-  const [visitors, setVisitors] = useState<number>(0)
-  const [isLoading, setIsLoading] = useState(true)
-
-
   useEffect(() => {
     setIsVisible(true)
-    getVisitorInfo();
-  }, [])
-
-  useEffect(() => {
-    let isMounted = true
-    const load = async () => {
-      const { data, error } = await supabase
-        .from("visitors")
-        .select("*")
-
-
-      if (!isMounted) return
-      if (!error) {
-        setVisitors(data?.length || 0)
-      }
-      setIsLoading(false)
-    }
-    load()
-    return () => {
-      isMounted = false
-    }
   }, [])
 
   const scrollToAbout = () => {
@@ -191,9 +98,7 @@ export function HeroSection() {
             Crafting beautiful, responsive, and user-friendly web experiences
             with modern technologies
           </p>
-          <p className="text-lg sm:text-xl mb-12 text-gray-300 max-w-2xl mx-auto leading-relaxed font-bold">
-            {isLoading ? "Loading visitors..." : `+${visitors} Visitors`}
-          </p>
+          <Visitors />
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <DownloadCVButton />
